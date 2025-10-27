@@ -1,0 +1,156 @@
+body {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Arimo', sans-serif;
+}
+
+.destinations-section {
+    background-color: #EFECE7;
+    min-height: 100%;
+    padding: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 0 40px;
+}
+
+.destination-label {
+    font-family: 'Arimo', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    color: #A88768;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about-us {
+   font-family: 'Arimo', sans-serif;
+   font-weight: 400;
+   font-size: 25px;
+   color: #A88768;
+   text-decoration: none;
+   text-transform: uppercase;
+   transition: color 0.3s ease;
+}
+
+.cafe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cafe-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cafe-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cafe-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cafe-item:hover .cafe-image {
+    transform: scale(1.05);
+}
+
+.cafe-name-overlay {
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    background-color: rgba(136, 90, 62, 0.72);
+    color: white;
+    font-family: 'Arimo', sans-serif;
+    font-weight: 700;
+    font-size: 110%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0.75rem;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    text-align: right;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .cafe-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+    }
+    .destinations-section {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cafe-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    .destinations-section {
+        padding: 1rem;
+    }
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    .destination-label {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+    .cafe-name-overlay {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cafe-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .destinations-section {
+        padding: 1rem;
+    }
+    .cafe-item {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
